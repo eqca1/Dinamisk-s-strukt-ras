@@ -32,7 +32,7 @@ public class Uzd1 {
 	LinkedList<String> saraksts = new LinkedList<>();
 	
 		do {
-			izvele = JOptionPane.showInputDialog(
+			izvele = JOptionPane.showInputDialog(null,
 					"1 - Pievienot produktu\n"+
 					"2 - Produktu skaits\n"+
 					"3 - Izvadīt produktu\n"+
@@ -45,7 +45,7 @@ public class Uzd1 {
 					"10 - Mainīt produktu\n"+
 					"11 - Sakārtot alfabētiski\n"+
 					"12 - Nodzēst sarakstu\n"+
-					"0 - Apturēt programmu~~"
+					"0 - Apturēt programmu~~", "Izvēlne", JOptionPane.PLAIN_MESSAGE
 					);
 			if(izvele == null) izvele = "0";
 			
@@ -75,8 +75,13 @@ public class Uzd1 {
 			}
 		break;	
 		case "4":
+			do {
+				koAtr = JOptionPane.showInputDialog(null, "Kādu produktu meklēt sarakstā?", "Jautājums", JOptionPane.INFORMATION_MESSAGE);
+				
+			}while(!koAtr.matches("[\\p{L} ]+$"));
 			
-			
+			JOptionPane.showMessageDialog(null, ((saraksts.indexOf(koAtr)) > -1)?
+					"Produkts atrasts"+saraksts.indexOf(koAtr)+". pozīcijā~" : "Produkts netika atrasts~", "Informācija", JOptionPane.INFORMATION_MESSAGE);
 			
 		break;
 		}
